@@ -1,0 +1,39 @@
+"Games"
+{
+	"left4dead2"
+	{
+		"MemPatches"
+		{
+			"trigger_finale condition"
+			{
+				"signature"	"CDirectorScriptedEventManager::UpdateSacrificeFinaleFailure"
+
+				"linux"
+				{
+					"offset"		"19"
+					"verify"		"\x74"
+					"patch"			"\xEB"
+				}
+
+				"windows"
+				{
+					"offset"		"16"
+					"verify"		"\x0F\x84"
+					"patch"			"\x90\xE9"
+				}
+			}
+		}
+
+		"Signatures"
+		{
+			"CDirectorScriptedEventManager::UpdateSacrificeFinaleFailure"
+			{
+				"library"	"server"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x50\x53\x8B\xD9"
+				// 55 8B EC 83 EC 50 53 8B D9
+
+				"linux"		"@_ZN29CDirectorScriptedEventManager28UpdateSacrificeFinaleFailureEv"
+			}
+		}
+	}
+}
